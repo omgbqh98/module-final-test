@@ -20,6 +20,10 @@
     <p th:text="${message}" style="color:green;"></p>
 </div>
 
+<div th:if="${success}">
+    <p th:text="${success}" style="color:red;"></p>
+</div>
+
 <h1>Cities</h1>
 <table border="1">
     <tr>

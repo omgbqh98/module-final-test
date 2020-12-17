@@ -6,6 +6,7 @@ import com.example.testfinal.service.city.CityService;
 import com.example.testfinal.service.nation.NationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,11 +44,12 @@ public class CityController {
         modelAndView.addObject("city", new City());
         return modelAndView;
     }
+
     @PostMapping("/create-city")
     public ModelAndView saveCity(@ModelAttribute City city){
         service.save(city);
         ModelAndView modelAndView=new ModelAndView("city/create");
-        modelAndView.addObject("message", "Create City Successfully!!!");
+        modelAndView.addObject("message", "Create City Success!");
         modelAndView.addObject("city", new City());
         return modelAndView;
     }
@@ -65,17 +67,17 @@ public class CityController {
         modelAndView.addObject("city", city.get());
         return modelAndView;
     }
+
     @PostMapping("/edit-city")
     public ModelAndView updateCity(@ModelAttribute City city){
         if (city== null){
             ModelAndView modelAndView =new ModelAndView("city/edit");
-            modelAndView.addObject("message", "Error Update !!!");
+            modelAndView.addObject("message", "Error !");
             return modelAndView;
         }
         service.save(city);
-        ModelAndView modelAndView =new ModelAndView("city/list");
-        modelAndView.addObject("message", "Update City Successfully!!!");
-//        modelAndView.addObject("city", new City());
+        ModelAndView modelAndView =new ModelAndView("redirect:city");
+        modelAndView.addObject("message", "Update City Success!");
         return modelAndView;
     }
 
@@ -87,14 +89,6 @@ public class CityController {
         service.findById(id);
         return modelAndView;
     }
-
-//    @PostMapping("/delete")
-//    public ModelAndView delete(@ModelAttribute("city") City city, RedirectAttributes redirectAttributes) {
-//        redirectAttributes.addFlashAttribute("message", "delete success");
-//        ModelAndView modelAndView = new ModelAndView("redirect:/city");
-//        service.delete(city.getId());
-//        return modelAndView;
-//    }
 
     @PostMapping("/delete")
     public String deleteCustomer(@ModelAttribute("city") City city, RedirectAttributes redirectAttributes) {

@@ -4,6 +4,9 @@ import com.sun.istack.NotNull;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Set;
 
@@ -18,9 +21,12 @@ public class City {
     private String name;
     private double area;
     private Long quantity;
-
     private Long GPA;
     private String description;
+
+    public City() {
+    }
+
 
     public Long getId() {
         return id;

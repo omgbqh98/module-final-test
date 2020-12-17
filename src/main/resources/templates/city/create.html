@@ -20,6 +20,7 @@
         <tr>
             <td>City Name : </td>
             <td><input type="text" th:field="*{name}"/></td>
+<!--            <td th:if="${#fields.hasErrors()}" th:errors="*{name}"></td>-->
 <!--            <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</td>-->
         </tr>
         <tr>
@@ -33,18 +34,24 @@
         <tr>
             <td>Area:</td>
             <td><input type="text" th:field="*{area}"/></td>
+<!--            <td th:if="${#fields.hasErrors()}" th:errors="*{area}"></td>-->
         </tr>
         <tr>
         <td>Quantity :</td>
             <td><input type="text" th:field="*{quantity}"/></td>
+<!--            <td th:if="${#fields.hasErrors()}" th:errors="*{quantity}"></td>-->
         </tr>
         <tr>
             <td>GPA:</td>
             <td><input type="text" th:field="*{GPA}"/></td>
+<!--            <td th:if="${#fields.hasErrors()}" th:errors="*{GPA}"></td>-->
+
         </tr>
         <tr>
             <td>Description:</td>
             <td><input type="text" th:field="*{description}"/></td>
+<!--            <td th:if="${#fields.hasErrors()}" th:errors="*{description}"></td>-->
+
         </tr>
         <tr>
             <td></td>
@@ -52,5 +59,7 @@
         </tr>
     </table>
 </form>
+
+
 </body>
 </html>
